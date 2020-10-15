@@ -23,4 +23,17 @@ class AuthHelper {
             die();
         }       
     }
+
+            //obtiene el username
+            public function getLoggedUserName() {
+                //pregunta si la sesion esta habilitada y si existe
+        if (session_status() != PHP_SESSION_ACTIVE)
+            session_start();
+            if (isset($_SESSION['ID_USER'])) {
+            return    $_SESSION["USERNAME"];
+    }else{
+        return null;
+    }
+    
+}
 }

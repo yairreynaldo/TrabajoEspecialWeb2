@@ -10,31 +10,7 @@
   <base href='{$BASE_URL}' >
 
 
-  <title>Supermecado Marano</title>
-
-  <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <base href='{$BASE_URL}' >
-
-
-  <title>Supermecado Marano</title>
+  <title>Supermercado Marano</title>
 
   <!-- development version, includes helpful console warnings -->
                 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -70,7 +46,6 @@
             <a class="nav-item nav-link" href="login">iniciar sesion</a>
         </div>
                 {/if}
-
         </div>
         {if isset($userName)}
         <div class="navbar-nav ml-auto">
@@ -88,4 +63,3 @@
   </nav>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-
