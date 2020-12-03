@@ -1,7 +1,7 @@
-              <!-- Footer -->
+            <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Supermecado mrh</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Supermecado mhs</p>
     </div>
     <!-- /.container -->
   </footer>

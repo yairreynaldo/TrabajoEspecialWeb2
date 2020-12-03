@@ -22,7 +22,7 @@ class CategoriaController {
                $this->authHelper->checkLoggedIn();
 
         $this->model->AgregarCategoria($_POST['nombre'],$_POST['descripcion']);
-        header("Location: " .BASE_URL."categorias");
+        header("Location: " . BASE_URL."producto");
 
     }
     public function editarcat($params = null) {
@@ -34,7 +34,7 @@ class CategoriaController {
         $descripcion = $_POST['descripcion'];
         if (!empty($nombre)) {
             $this->model->editarcat($id_cat,$nombre,$descripcion);
-            header("Location: " . BASE_URL."categorias");
+            header("Location: " . BASE_URL."producto");
 
         } else {
             $this->view->displayError("debe completar los campos de categoria,nombre y precio OBLIGATORIOS");
@@ -68,7 +68,7 @@ class CategoriaController {
         $producto = $this->model->get($id);
         if (!$producto){
            $this->model->borrarCat($id);
-         header("Location: " .BASE_URL."categorias");
+           header("Location: " . BASE_URL."producto");
         }else{
             $this->view->displayError("no puede borrar esta categoria porque existen productos asociados ");
 

@@ -8,6 +8,7 @@ class AuthHelper {
         session_start();
         $_SESSION['ID_USER'] = $user->id;
         $_SESSION['USERNAME'] = $user->username;
+        $_SESSION['admin'] = $user->admin;
 
 
     }
@@ -23,9 +24,24 @@ class AuthHelper {
             die();
         }       
     }
-
+    //redireccion cuando no es admin a home
+            public function checkadmin(){
+                header('Location: '.BASE_URL.'home');
+             die();
+            }
+    public function isAdmin(){
+        //pregunta si la sesion esta habilitada y si existe
+        if (session_status() != PHP_SESSION_ACTIVE)
+        session_start();
+        if (isset($_SESSION['admin'])) {
+            return $_SESSION['admin']==1;
+            return true;
+        }else{
+            return false;
+        }
+            }
             //obtiene el username
-            public function getLoggedUserName() {
+    public function getLoggedUserName() {
                 //pregunta si la sesion esta habilitada y si existe
         if (session_status() != PHP_SESSION_ACTIVE)
             session_start();

@@ -8,18 +8,19 @@ require_once('Router.php');
     // CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
     define("LOGIN", BASE_URL . 'login');
+    define("REGISTRARSE", BASE_URL . 'registrarse');
+
 
 
     $r = new Router();
 
     // rutas
+    //login
     $r->addRoute("login", "GET", "LoginController", "showLogin");
+    //verifica el usuarios
     $r->addRoute("verify", "POST", "LoginController", "verifyUser");
+    //logout
     $r->addRoute("logout", "GET", "LoginController", "logout");
-    //home
-    $r->addRoute("inicio", "GET", "ProductoController", "home");
-    //nosotros
-    $r->addRoute("nosotros", "GET", "ProductoController", "nosotros");
     //todos los productos
     $r->addRoute("producto", "GET", "ProductoController", "GetP");
     //borrar producto
@@ -30,10 +31,20 @@ require_once('Router.php');
     $r->addRoute("editarProducto/:ID", "POST", "ProductoController", "editarProducto");
     //agregar categoria
     $r->addRoute("AgregarCategoria", "POST", "CategoriaController", "AgregarCategoria");
+    //agregar comentario
+    $r->addRoute("insertar", "POST", "ProductoController", "AgregarComentario");
+    //borrar comentario
+    $r->addRoute("borrarcomentarios/:ID", "GET", "ProductoController", "borrarcomentario");
     //agregar producto
     $r->addRoute("agregar", "POST", "ProductoController", "AgregarProducto");
+    //home
+    $r->addRoute("inicio", "GET", "ProductoController", "home");
+    //nosotros
+    $r->addRoute("nosotros", "GET", "ProductoController", "nosotros");
     //obtener categoria en producto
     $r->addRoute("Productos", "GET", "ProductoController", "getcat");
+    //ordenar por precio asc
+    $r->addRoute("OrdenarPorPrecio", "GET", "ProductoController", "ordenar");
     //borrar categoria
     $r->addRoute("borrarCat/:ID", "GET", "CategoriaController", "borrarCat");
     //obtener todos los producto de una categoria
@@ -44,6 +55,23 @@ require_once('Router.php');
     $r->addRoute("precargarcat/:ID", "GET", "CategoriaController", "precargarcat");
     //editar cat
     $r->addRoute("editarcat/:ID", "POST", "CategoriaController", "editarcat");
+    //obtiene los comentarios
+    $r->addRoute("getComentariosCSR/:ID", "GET", "ProductoController", "GETcomentarios");
+    //form registrarse
+    $r->addRoute("registrarse", "GET", "LoginController", "registrarse");
+    //lo registra
+    $r->addRoute("nuevoregistro", "POST", "LoginController", "registrar");
+    //pagina admin
+    $r->addRoute("admin", "GET", "LoginController", "getUsuarios");
+    //asigna admin
+    $r->addRoute("AsignarAdmin/:ID", "GET", "LoginController", "AsignarAdmin");
+    //elimina admin
+    $r->addRoute("QuitarAdmin/:ID", "GET", "LoginController", "QuitarAdmin");
+    //borrar usuario
+    $r->addRoute("deleteUsuario/:ID", "GET", "LoginController", "borrarusuario");
+
+
+
 
 
     //Ruta por defecto.

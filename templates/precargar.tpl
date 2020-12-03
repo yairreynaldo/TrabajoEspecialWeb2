@@ -13,6 +13,7 @@
                 <input class="form-control" type="text"  name=nombre placeholder="" value={$hola->nombre}>
                 <input class="form-control" type="text"  name=descripcion placeholder="Descripcion" value={$hola->descripcion}>
                 <input class="form-control" type="number"  name=precio placeholder="precio" value={$hola->precio}>
+                <input class="form-control" type="file"   name="imagen" placeholder="imagen" value={$hola->imagen}>
                  <input type="submit"  value=editar;  class="btn btn-primary mr-2"editar>
 
         </form>

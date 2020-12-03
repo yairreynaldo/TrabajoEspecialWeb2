@@ -7,11 +7,13 @@
 
         function __construct(){
             $authHelper = new AuthHelper();
-            $userName = $authHelper->getLoggedUserName();           
+            $userName = $authHelper->getLoggedUserName();
+            $isAdmin =$authHelper->isAdmin(); ;            
             
             $this->smarty = new Smarty();
             $this->smarty->assign('BASE_URL',BASE_URL);
             $this->smarty->assign('userName', $userName);
+            $this->smarty->assign('isAdmin', $isAdmin);
 
 
         }
@@ -20,6 +22,11 @@
             $this->smarty->assign('lista_Productos',$Producto);
             $this->smarty->assign('cat',$cat);
             $this->smarty->display('templates/index.tpl');
+        }
+        //ordena asc
+        public function ordenar($ordenar){
+            $this->smarty->assign('orden',$ordenar);
+            $this->smarty->display('templates/orden.tpl');
         }
         //precargar form editar
         public function precargar($producto,$categorias){
@@ -30,9 +37,9 @@
         //detalle producto
         public function showProducto($producto){
             $this->smarty->assign('productos',$producto);
-            $this->smarty->display('templates/detalle.tpl');   
+            $this->smarty->display('templates/detallep.tpl');   
         }
-
+        
         //imprimir los errores
         public function showError($msgError) {
             echo "<h1>ERROR!</h1>";

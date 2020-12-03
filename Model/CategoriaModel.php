@@ -4,7 +4,7 @@ class CategoriaModel {
 
     private $db;
     function __construct(){
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=supermercado;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;'.'dbname=supermecado;charset=utf8', 'root', '');
     }
 
 	public function GetCategoria(){
@@ -45,6 +45,11 @@ class CategoriaModel {
         $sentencia=$this->db->prepare("DELETE FROM categoria where id_categoria=?");
         $sentencia->execute(array($id));
  
+    }
+    private function moveFile($imagen) {
+        $filepath = "imgagenescat/" . uniqid() . "." . strtolower(pathinfo($imagen['name'], PATHINFO_EXTENSION));  
+        move_uploaded_file($imagen['tmp_name'], $filepath);
+        return $filepath;
     }
     
 }

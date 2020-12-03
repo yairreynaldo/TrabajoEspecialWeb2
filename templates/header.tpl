@@ -10,7 +10,7 @@
   <base href='{$BASE_URL}' >
 
 
-  <title>Supermercado Marano</title>
+  <title>Supermecado Marano</title>
 
   <!-- development version, includes helpful console warnings -->
                 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -46,6 +46,11 @@
             <a class="nav-item nav-link" href="login">iniciar sesion</a>
         </div>
                 {/if}
+                   {if  (isset($isAdmin))&&($isAdmin)}
+         <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link" href="admin">administrar</a>
+                            {/if}
+
         </div>
         {if isset($userName)}
         <div class="navbar-nav ml-auto">
@@ -63,3 +68,4 @@
   </nav>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+

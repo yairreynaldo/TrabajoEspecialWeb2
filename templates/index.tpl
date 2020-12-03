@@ -18,13 +18,27 @@
     </div>
   </div>
 </div>
+
+<!-- Split dropright button -->
+<div class="btn-group dropright">
+  <button type="button" class="btn btn-secondary">
+    Ordenar Por
+  </button>
+  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropright</span>
+  </button>
+  <div class="dropdown-menu">
+      <a class="dropdown-item" href="OrdenarPorPrecio">precio de menor a mayor</a>
+
+  </div>
+</div>
   
   <div class="container">
         <div class="row">
 {foreach from=$lista_Productos item=p}
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="producto/{$p->id_producto}">
+              <a href="producto/{$p->id_producto}"><img class="card-img-top" src="{$p->imagen}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="producto/{$p->id_producto}">{$p->nombre} </a> 
@@ -62,6 +76,7 @@
         <input class="form-control" type="text"  name="nombre" placeholder="nombre">
         <input class="form-control" type="number"  name="precio" placeholder="precio">
         <input class="form-control" type="text"   name="descripcion" placeholder="Descripcion">
+        <input class="form-control" type="file"   name="imagen" placeholder="foto">
         <input type="submit"  value='agregar producto' class="btn btn-primary mr-2">
 
 </form>
@@ -77,3 +92,4 @@
  {/if}
 
             {include file="footer.tpl"}
+
